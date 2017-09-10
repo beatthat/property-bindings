@@ -31,6 +31,9 @@ namespace BeatThat
 		}
 	}
 
+	/// <summary>
+	/// Use a PropertyBinding when you have a property component and you want to keep it's value in sync with some external value.
+	/// </summary>
 	public abstract class PropertyBinding<PropertyType> : Subcontroller
 		where PropertyType : class
 	{
@@ -60,6 +63,9 @@ namespace BeatThat
 		virtual protected void UnbindProperty() {}
 	}
 
+	/// <summary>
+	/// Use a PropertyBinding when you have a property component and you want to keep it's value in sync with some external value.
+	/// </summary>
 	public abstract class PropertyBinding<ControllerType, PropertyType> : Subcontroller<ControllerType> 
 		where ControllerType : class
 		where PropertyType : class
