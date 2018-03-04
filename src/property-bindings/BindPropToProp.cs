@@ -28,6 +28,12 @@ namespace BeatThat
 
 		public bool m_debug;
 
+		virtual protected ValueType defaultValue { get { return m_defaultValue; } }
+		virtual protected void SetDefaultValue(ValueType v)
+		{
+			m_defaultValue = v;
+		}
+
 		sealed override protected void BindProperty ()
 		{
 			BindP2P();
@@ -41,6 +47,37 @@ namespace BeatThat
 		}
 
 		/// <summary>
+		/// Convenience method to take a target property and connect it to a driver 
+		/// by adding and configuring a BindPropToProp component
+		/// to the target property's GameObject.
+		/// </summary>
+		public static bool Connect<BindP2PType>(SourceProp driver, TgtProp tgtProp, ValueType resetValue = default(ValueType))
+			where BindP2PType : BindPropToProp<SourceProp, TgtProp, ValueType>
+		{
+			if(tgtProp == null) {
+				#if UNITY_EDITOR || DEBUG_UNSTRIP
+				Debug.LogWarning("Unable to Connect to a null target prop!");
+				#endif
+				return false;
+			}
+				
+			var tgtPropComp = tgtProp as Component;
+			if(tgtPropComp == null) {
+				#if UNITY_EDITOR || DEBUG_UNSTRIP
+				Debug.LogWarning("Unable to Connect to a target prop that's not a component!");
+				#endif
+				return false;
+			}
+
+			var binding = tgtPropComp.gameObject.AddComponent<BindP2PType> ();
+			binding.SetDefaultValue(resetValue);
+			binding.ConfigureDriver (driver);
+			binding.property = tgtProp;
+
+			return true;
+		}
+
+		/// <summary>
 		/// override to add behaviour on bind
 		/// </summary>
 		virtual protected void BindP2P() {}
@@ -50,7 +87,6 @@ namespace BeatThat
 		/// </summary>
 		virtual protected void UnbindP2P() {}
 
-		virtual protected ValueType defaultValue { get { return m_defaultValue; } }
 
 		public void UpdateProperty()
 		{
@@ -159,13 +195,6 @@ namespace BeatThat
 		}
 		private UnityAction<ValueType> driverValueChangedAction { get { return m_driverValueChangedAction?? (m_driverValueChangedAction = this.OnDriverValueChanged); } }
 		private UnityAction<ValueType> m_driverValueChangedAction;
-
-		private void OnSelectedRepUpdated()
-		{
-			RebindDriver();
-		}
-		private UnityAction selectedRepUpdatedAction { get { return m_selectedRepUpdatedAction?? (m_selectedRepUpdatedAction = this.OnSelectedRepUpdated); } }
-		private UnityAction m_selectedRepUpdatedAction;
 	}
 
 	[RequireComponent(typeof(PropType))]
