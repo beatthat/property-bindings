@@ -1,6 +1,6 @@
 {
   "name": "property-bindings",
-  "scope": "ape",
+  "scope": "beatthat",
   "version": "1.0.1",
   "description": "Components for binding a property component (component that holds a value) to something that holds or calculates its value, e.g. another property",
   "main": "index.js",
@@ -11,7 +11,9 @@
   "files": [
     "index.js",
     "scripts",
-    "src"
+    "src",
+    "Runtime",
+    "Samples"
   ],
   "author": "larrykirschner@gmail.com",
   "license": "MIT",
@@ -36,7 +38,6 @@
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
     "property-interfaces": "github:beatthat/property-interfaces#semver:^1.0.0",
-    "properties": "github:beatthat/properties#semver:^1.0.0",
     "bindings": "github:beatthat/bindings#semver:^1.0.0",
     "controllers": "github:beatthat/controllers#semver:^1.0.0",
     "services": "github:beatthat/services#semver:^1.0.0",
