@@ -1,6 +1,5 @@
 using UnityEngine;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	public class BindLongToLong : BindPropToProp<LongProp, IHasValue<long>, HasLong, long> {}
 }

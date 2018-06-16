@@ -1,10 +1,12 @@
-using BeatThat;
+using BeatThat.TransformPathExt;
+using BeatThat.Pools;
 using System;
+using BeatThat.Bindings;
 using UnityEngine.Events;
 
-namespace BeatThat
+namespace BeatThat.Properties
 {
-	abstract public class DrivenBoolProp<DriverType> : BoolProp where DriverType : IHasValueObjChanged
+    abstract public class DrivenBoolProp<DriverType> : BoolProp where DriverType : IHasValueObjChanged
 	{
 		public DriverType m_driver;
 		public bool m_value;
@@ -80,3 +82,5 @@ namespace BeatThat
 		
 	}
 }
+
+

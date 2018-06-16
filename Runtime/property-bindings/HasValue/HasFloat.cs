@@ -1,7 +1,6 @@
 using UnityEngine;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	public abstract class HasFloat : HasValue, IHasFloat
 	{
 		public abstract float value { get; set; }

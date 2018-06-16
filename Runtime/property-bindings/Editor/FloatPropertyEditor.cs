@@ -2,8 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using System;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	[CustomEditor(typeof(FloatProperty), true)]
 	[CanEditMultipleObjects]
 	public class FloatPropertyEditor : ValuePropertyEditor<FloatProperty, float>

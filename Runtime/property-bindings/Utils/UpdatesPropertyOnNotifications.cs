@@ -1,10 +1,11 @@
+using BeatThat.TransformPathExt;
+using BeatThat.Pools;
 using BeatThat;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
     /// <summary>
     /// Keeps a property in sync with an authoritative source for a setup with two features:
     /// 
@@ -56,4 +57,6 @@ namespace BeatThat
         }
     }
 }
+
+
 

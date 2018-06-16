@@ -4,8 +4,7 @@ using System.Reflection;
 using UnityEngine;
 using System.Linq;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	public struct TypeAndDrivenType
 	{
 		public Type type;

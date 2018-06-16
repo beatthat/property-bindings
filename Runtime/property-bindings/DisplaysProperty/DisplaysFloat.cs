@@ -1,7 +1,6 @@
 using UnityEngine;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	/// <summary>
 	/// Use a float to drive some display element and an update-display call will trigger when the property changes by script call or animation.
 	/// Exposes the IHasFloat set_value interface, so this component can be used more easily in transitions (e.g. as an element of a TransitionsElements)

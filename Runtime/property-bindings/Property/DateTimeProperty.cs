@@ -1,10 +1,10 @@
+using BeatThat.TransformPathExt;
 using UnityEngine.Events;
 using UnityEngine;
 using System;
+using BeatThat.UnityEvents;
 
-
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	public class DateTimeProperty : DateTimeProp
 	{
 		public DateTime m_value; // TODO: this shouldn't be public but good to see in Inspector. Move to editor class.
@@ -13,7 +13,9 @@ namespace BeatThat
 		override protected void _SetValue(DateTime s) { m_value = s; }
 	}
 
-	public abstract class DateTimeProp : HasDateTime, IHasValueChangedEvent<DateTime>
+    public interface IDateTimeProp : IHasProp<DateTime> {}
+
+    public abstract class DateTimeProp : HasDateTime, IDateTimeProp
 	{
 		public bool m_debug;
 		public bool m_debugBreakOnSetValue;
@@ -67,3 +69,4 @@ namespace BeatThat
 	}
 
 }
+

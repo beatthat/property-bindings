@@ -2,8 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 
     /// <summary>
 	/// Editor functionality that works for [Bool|Int|Float|etc.]Property (assumes a value member variable called 'm_value')

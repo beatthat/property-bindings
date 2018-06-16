@@ -1,10 +1,11 @@
+using BeatThat.SafeRefs;
+using BeatThat.TransformPathExt;
+using BeatThat.Controllers;
 using BeatThat;
 using UnityEngine;
 using System;
 using UnityEngine.Serialization;
-using BeatThat.PropertyExt;
-
-namespace BeatThat
+namespace BeatThat.Properties
 {
 
 	public enum TargetPropertyAssignmentType { FindAtRuntime = 0, AssignableType = 1, FindOnGameObject = 2 }
@@ -262,3 +263,6 @@ namespace BeatThat
 
 
 }
+
+
+

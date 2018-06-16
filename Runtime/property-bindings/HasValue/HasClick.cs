@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	public abstract class HasClick : MonoBehaviour, IHasClick
 	{
 		#if LEGACY_HAS_CLICK

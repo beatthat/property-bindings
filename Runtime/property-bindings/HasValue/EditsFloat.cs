@@ -2,8 +2,7 @@ using System;
 using UnityEngine.Events;
 
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	public abstract class EditsFloat : HasFloat, IHasValueChangedEvent
 	{
 		public UnityEvent onValueChanged { get { return m_onValueChanged; } }

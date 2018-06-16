@@ -1,8 +1,8 @@
+using BeatThat.TransformPathExt;
 using UnityEngine.Events;
 using UnityEngine;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	/// <summary>
 	/// An IntProp that stores its value as a member variable
 	/// </summary>
@@ -77,3 +77,4 @@ namespace BeatThat
 	}
 
 }
+

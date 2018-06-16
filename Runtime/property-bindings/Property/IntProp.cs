@@ -1,11 +1,11 @@
+using BeatThat.TransformPathExt;
 using UnityEngine.Events;
 using UnityEngine;
 using UnityEngine.Serialization;
+using BeatThat.UnityEvents;
 
-
-namespace BeatThat
-{
-	public interface IIntProp : IHasInt, IHasValueChangedEvent<int> {}
+namespace BeatThat.Properties{
+    public interface IIntProp : IHasProp<int> {}
 
 	/// <summary>
 	/// A HasBool that sends events when the value changes
@@ -113,3 +113,4 @@ namespace BeatThat
 	}
 
 }
+

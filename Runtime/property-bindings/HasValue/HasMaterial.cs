@@ -1,9 +1,9 @@
+using BeatThat.TransformPathExt;
 using UnityEngine;
 using UnityEngine.UI;
 using BeatThat;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	public abstract class HasMaterial : MonoBehaviour, IHasMaterial
 	{
 		public Material material { get { return this.value; } set { this.value = value; } }
@@ -32,3 +32,4 @@ namespace BeatThat
 		}
 	}
 }
+

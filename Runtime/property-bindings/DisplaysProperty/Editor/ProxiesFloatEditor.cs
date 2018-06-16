@@ -1,11 +1,9 @@
+using BeatThat.Pools;
 using UnityEditor;
 using UnityEngine;
-using BeatThat.PropertyExt;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	[CustomEditor(typeof(ProxiesFloat), true)]
-//	[CanEditMultipleObjects]
 	public class ProxiesFloatEditor : UnityEditor.Editor
 	{
 		public override void OnInspectorGUI()
@@ -82,3 +80,4 @@ namespace BeatThat
 		}
 	}
 }
+

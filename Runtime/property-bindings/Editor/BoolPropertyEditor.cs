@@ -2,8 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using System;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	[CustomEditor(typeof(BoolProperty), true)]
 	[CanEditMultipleObjects]
 	public class BoolPropertyEditor : ValuePropertyEditor<BoolProperty, bool>

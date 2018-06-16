@@ -1,9 +1,11 @@
+using BeatThat.TransformPathExt;
 using UnityEngine.Events;
 using UnityEngine;
+using BeatThat.UnityEvents;
 
+namespace BeatThat.Properties{
+    public interface ILongProp : IHasProp<long> {}
 
-namespace BeatThat
-{
 	public class LongProperty : LongProp
 	{
 		public long m_value; // TODO: this shouldn't be public but good to see in Inspector. Move to editor class.
@@ -12,7 +14,7 @@ namespace BeatThat
 		override protected void _SetValue(long s) { m_value = s; }
 	}
 
-	public abstract class LongProp : HasLong, IHasValueChangedEvent<long>
+    public abstract class LongProp : HasLong, ILongProp
 	{
 		public bool m_debug;
 		public bool m_debugBreakOnSetValue;
@@ -68,3 +70,4 @@ namespace BeatThat
 	}
 
 }
+

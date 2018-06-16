@@ -1,24 +1,9 @@
+using BeatThat.TransformPathExt;
+using BeatThat.UnityEvents;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace BeatThat
-{
-//	public class ColorProperty : HasColor
-//	{
-//		public Color m_color;
-//
-//		#region implemented abstract members of HasColor
-//		override protected Color GetColor() 
-//		{
-//			return m_color;
-//		}
-//
-//		override protected void _SetColor(Color c)
-//		{
-//			m_color = c;
-//		}
-//		#endregion
-//	}
+namespace BeatThat.Properties{
 
 	public class ColorProperty : ColorProp
 	{
@@ -28,7 +13,9 @@ namespace BeatThat
 		override protected void _SetValue(Color s) { m_value = s; }
 	}
 
-	public abstract class ColorProp : HasColor, IHasValueChangedEvent<Color>
+    public interface IColorProp : IHasProp<Color> {}
+
+    public abstract class ColorProp : HasColor, IColorProp
 	{
 		public bool m_debug;
 		public bool m_debugBreakOnSetValue;
@@ -84,3 +71,4 @@ namespace BeatThat
 	}
 
 }
+

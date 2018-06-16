@@ -1,7 +1,8 @@
+using BeatThat.SafeRefs;
+using BeatThat.TransformPathExt;
 using UnityEngine;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	// TODO: create DrivesFloatOn and DrivesIntOn as needed
 
 	/// <summary>
@@ -105,3 +106,5 @@ namespace BeatThat
 		private SafeRef<WrappedType> m_wrappedResolved;
 	}
 }
+
+

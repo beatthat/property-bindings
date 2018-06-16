@@ -1,10 +1,12 @@
+using BeatThat.TransformPathExt;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 using UnityEngine;
+using BeatThat.UnityEvents;
 
+namespace BeatThat.Properties{
+    public interface ITextProp : IHasProp<string> {}
 
-namespace BeatThat
-{
 	public class TextProperty : TextProp
 	{
 		[FormerlySerializedAs("m_text")]
@@ -15,7 +17,7 @@ namespace BeatThat
 		
 	}
 
-	public abstract class TextProp : HasText, IHasValueChangedEvent<string>
+    public abstract class TextProp : HasText, ITextProp
 	{
 		public bool m_debug;
 		public bool m_debugBreakOnSetValue;
@@ -75,3 +77,4 @@ namespace BeatThat
 		}
 	}
 }
+

@@ -1,7 +1,7 @@
+using BeatThat.ColorAssets;
 using UnityEngine;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	public class BindColorToColor : BindPropToProp<ColorProp, IHasColor, HasColor, Color>, IHasColorAsset
 	{
 		[SerializeField][HideInInspector]private bool m_useAssetForDefaultValue;

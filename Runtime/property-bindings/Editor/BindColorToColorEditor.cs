@@ -1,8 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	[CustomEditor(typeof(BindColorToColor), true)]
 	[CanEditMultipleObjects]
 	public class BindColorToColorEditor : PropertyBindingEditor

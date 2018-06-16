@@ -1,8 +1,12 @@
+using BeatThat.SafeRefs;
+using BeatThat.TransformPathExt;
+using BeatThat.Pools;
+using BeatThat.Bindings;
 using UnityEngine;
 using UnityEngine.Events;
+using BeatThat.GetComponentsExt;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	public interface IBindProp2Prop<SourceProp, TgtProp, ValueType> 
         where SourceProp : class, IHasValue<ValueType>, IHasValueChangedEvent<ValueType>
         where TgtProp : class, IHasValue<ValueType>
@@ -265,3 +269,6 @@ namespace BeatThat
 	}
 
 }
+
+
+

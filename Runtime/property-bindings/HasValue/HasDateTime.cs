@@ -1,8 +1,7 @@
 using UnityEngine;
 using System;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	public abstract class HasDateTime : HasValue, IHasDateTime
 	{
 		public abstract DateTime value { get; set; }

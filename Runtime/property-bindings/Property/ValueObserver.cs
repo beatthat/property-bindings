@@ -1,8 +1,9 @@
+using BeatThat.TransformPathExt;
+using BeatThat.Controllers;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	/// <summary>
 	/// Base class for components that listens for changes in a value property
 	/// </summary>
@@ -61,3 +62,5 @@ namespace BeatThat
 
 	}
 }
+
+

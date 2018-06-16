@@ -1,9 +1,10 @@
+using BeatThat.GetComponentsExt;
+using BeatThat.Controllers;
 using UnityEngine;
 using System;
 
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	/// <summary>
 	/// Drives a text object by applying some format to input text. 
 	/// 
@@ -131,3 +132,5 @@ namespace BeatThat
 		}
 	}
 }
+
+

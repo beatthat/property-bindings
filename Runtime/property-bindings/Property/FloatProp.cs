@@ -1,11 +1,14 @@
+using BeatThat.TransformPathExt;
 using UnityEngine.Events;
 using UnityEngine;
 using UnityEngine.Serialization;
+using BeatThat.UnityEvents;
 
+namespace BeatThat.Properties{
 
-namespace BeatThat
-{
-	public abstract class FloatProp : HasFloat, IHasValueChangedEvent<float>
+    public interface IFloatProp : IHasProp<float> {}
+
+    public abstract class FloatProp : HasFloat, IFloatProp
 	{
 		public bool m_debug;
 		public bool m_debugBreakOnSetValue;
@@ -112,3 +115,4 @@ namespace BeatThat
 	}
 
 }
+

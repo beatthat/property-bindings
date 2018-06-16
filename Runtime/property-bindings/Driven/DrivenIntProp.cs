@@ -1,10 +1,11 @@
-using BeatThat;
+using BeatThat.Pools;
 using System;
+using BeatThat.Bindings;
 using UnityEngine.Events;
 
-namespace BeatThat
+namespace BeatThat.Properties
 {
-	abstract public class DrivenIntProp<DriverType> : IntProp where DriverType : IHasValueObjChanged
+    abstract public class DrivenIntProp<DriverType> : IntProp where DriverType : IHasValueObjChanged
 	{
 		public DriverType m_driver;
 		public int m_value;
@@ -74,3 +75,4 @@ namespace BeatThat
 		
 	}
 }
+

@@ -1,16 +1,16 @@
+using BeatThat.TransformPathExt;
 using UnityEngine.Events;
 using UnityEngine;
 using UnityEngine.Serialization;
+using BeatThat.UnityEvents;
 
-
-namespace BeatThat
-{
-	public interface IBoolProp : IHasBool, IHasValueChangedEvent<bool> {}
+namespace BeatThat.Properties{
+    public interface IBoolProp : IHasProp<bool> {}
 
 	/// <summary>
 	/// A HasBool that sends events when the value changes
 	/// </summary>
-	public abstract class BoolProp : HasBool, IHasValueChangedEvent<bool>
+    public abstract class BoolProp : HasBool, IBoolProp
 	{
 		public bool m_debug;
 		public bool m_debugBreakOnSetValue;
@@ -116,3 +116,4 @@ namespace BeatThat
 	}
 
 }
+

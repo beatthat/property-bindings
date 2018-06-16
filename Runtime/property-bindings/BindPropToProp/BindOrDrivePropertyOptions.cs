@@ -1,5 +1,4 @@
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	public enum BindOrDrivePropertyOptions
 	{
 		Disabled = 0,

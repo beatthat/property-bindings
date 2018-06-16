@@ -1,11 +1,11 @@
+using BeatThat.TransformPathExt;
 using UnityEngine.Events;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
 
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	public class ValueProperty<T> : ValueProp<T>
 	{
 		public T m_value; // TODO: this shouldn't be public but good to see in Inspector. Move to editor class.
@@ -17,7 +17,7 @@ namespace BeatThat
 	/// <summary>
 	/// Base class for any custom value property that doesn't need an editor-assignable HasXXX base class.
 	/// </summary>
-	abstract public class ValueProp<T> : HasValue, IHasValue<T>, IHasValueChangedEvent<T>
+    abstract public class ValueProp<T> : HasValue, IHasProp<T>
 	{
 		public bool m_debug;
 		public bool m_debugBreakOnSetValue;
@@ -74,3 +74,4 @@ namespace BeatThat
 	}
 
 }
+

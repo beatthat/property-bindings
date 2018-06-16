@@ -3,8 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using System;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
     [RequireComponent(typeof(Image))]
 	public class HasTextureSprite : HasTexture
     {

@@ -2,8 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	public abstract class HasTexture : MonoBehaviour, IEditsTexture
 	{
 		public UnityEvent onValueChanged { get { return m_onValueChanged?? (m_onValueChanged = new UnityEvent()); } }

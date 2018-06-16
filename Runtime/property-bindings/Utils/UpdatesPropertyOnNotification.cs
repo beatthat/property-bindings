@@ -2,8 +2,7 @@ using BeatThat;
 using System;
 using System.Collections.Generic;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
     /// <summary>
     /// Keeps a property in sync with an authoritative source for a setup with two features:
     /// 

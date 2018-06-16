@@ -3,8 +3,7 @@ using UnityEngine.Events;
 using System;
 using BeatThat.OptionalComponents;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	public abstract class HasValue : MonoBehaviour, IHasValue, IHasValueObjChanged
 	{
 		[Tooltip("set TRUE to disable the behaviour that checks/ensures sibling components defined by the [OptionalComponent] attribute.")]

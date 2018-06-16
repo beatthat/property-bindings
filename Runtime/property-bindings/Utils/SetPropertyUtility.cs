@@ -1,7 +1,6 @@
 using UnityEngine;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	/// <summary>
 	/// Utils for setting props that return a bool to indicate if the prop has changed value.
 	/// 

@@ -1,10 +1,14 @@
+using BeatThat.TransformPathExt;
+using BeatThat.GetComponentsExt;
+using BeatThat.Pools;
+using BeatThat.CollectionsExt;
+using System;
+using System.Collections.Generic;
+using BeatThat.Comments;
 using UnityEditor;
 using UnityEngine;
-using System;
-using System.Linq;
-using System.Collections.Generic;
 
-namespace BeatThat
+namespace BeatThat.Properties
 {
     [CustomEditor(typeof(PropertyBinding), true)]
     public class PropertyBindingEditor : UnityEditor.Editor
@@ -268,3 +272,8 @@ namespace BeatThat
 		}
 	}
 }
+
+
+
+
+

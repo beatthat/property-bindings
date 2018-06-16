@@ -2,8 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using System;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	[CustomEditor(typeof(IntProperty), true)]
 	[CanEditMultipleObjects]
 	public class IntPropertyEditor : ValuePropertyEditor<IntProperty, int>

@@ -1,6 +1,5 @@
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	public abstract class HasText : HasValue, IHasText
 	{
 		abstract public string value { get; set; }

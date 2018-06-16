@@ -1,8 +1,7 @@
 using UnityEngine.Events;
 
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	public abstract class EditsBool : HasBool, IEditsBool
 	{
 		public UnityEvent onValueChanged { get { return m_onValueChanged?? (m_onValueChanged = new UnityEvent()); } set { m_onValueChanged = value; } }

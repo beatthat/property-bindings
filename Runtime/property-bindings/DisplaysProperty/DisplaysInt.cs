@@ -1,7 +1,6 @@
 using UnityEngine;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	/// <summary>
 	/// Use an int to drive some display element and an update-display call will trigger when the property changes by script call or animation.
 	/// 

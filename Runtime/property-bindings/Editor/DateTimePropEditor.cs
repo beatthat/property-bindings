@@ -2,8 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using System;
 
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	[CustomEditor(typeof(DateTimeProp), true)]
 	[CanEditMultipleObjects]
 	public class DateTimePropEditor : UnityEditor.Editor

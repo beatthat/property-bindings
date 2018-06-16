@@ -1,8 +1,4 @@
-using UnityEngine;
-using BeatThat.PropertyExt;
-
-namespace BeatThat
-{
+namespace BeatThat.Properties{
 	/// <summary>
 	/// A component that proxies another HasFloat
 	/// Gets a special base class to make sure that when you drag 'driven' in the inspector
