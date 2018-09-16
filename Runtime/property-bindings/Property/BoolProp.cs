@@ -1,3 +1,5 @@
+using BeatThat.TransformPathExt;
+using BeatThat.UnityEvents;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
