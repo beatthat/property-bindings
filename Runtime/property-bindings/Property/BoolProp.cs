@@ -1,10 +1,9 @@
-using BeatThat.TransformPathExt;
-using UnityEngine.Events;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
-using BeatThat.UnityEvents;
 
-namespace BeatThat.Properties{
+namespace BeatThat.Properties
+{
     public interface IBoolProp : IHasProp<bool> {}
 
 	/// <summary>
