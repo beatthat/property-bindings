@@ -24,11 +24,32 @@ namespace BeatThat.Properties{
 		[HideInInspector]public FloatProp m_bindToProperty;
         [HideInInspector][FormerlySerializedAs("m_driven")]public HasFloat m_driveProperty;
 		private bool hasConnectedBinding;
-		virtual protected void Awake()
+		virtual protected void OnEnable()
 		{
-			if (this.bindOrDrivePropertyOptions == BindOrDrivePropertyOptions.Disabled || this.hasConnectedBinding) {
-				return;
-			}
+            // NOTE: this needs to be OnEnable (not awake or start)
+            // because otherwise if this component exists on, say,
+            // a pooled object that's getting enabled and disabled, 
+            // the Connect logic below will ONLY execute on first use of object.
+
+            if (this.bindOrDrivePropertyOptions == BindOrDrivePropertyOptions.Disabled)
+            {
+#if UNITY_EDITOR || DEBUG_UNSTRIP
+                if (m_debug)
+                {
+                    Debug.Log("[" + this.Path() + "] " + GetType() + " bind or drive property is disabled");
+                }
+#endif
+                return;
+            }
+
+            if (this.hasConnectedBinding && this.bindOrDrivePropertyOptions == BindOrDrivePropertyOptions.BindToProperty && m_bindToProperty != null)
+            {
+#if UNITY_EDITOR || DEBUG_UNSTRIP
+                Debug.Log("[" + this.Path() + "] " + GetType() + " bind or drive property is already connected. Setting value to " + m_bindToProperty.value);
+#endif
+                SetValue(m_bindToProperty.value);
+                return;
+            }
 
 			this.hasConnectedBinding |= 
 				this.bindOrDrivePropertyOptions == BindOrDrivePropertyOptions.BindToProperty 

@@ -1,11 +1,10 @@
 using BeatThat.TransformPathExt;
-using BeatThat.UnityEvents;
-using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine;
 using UnityEngine.Serialization;
+using BeatThat.UnityEvents;
 
-namespace BeatThat.Properties
-{
+namespace BeatThat.Properties{
     public interface IBoolProp : IHasProp<bool> {}
 
 	/// <summary>
@@ -26,29 +25,54 @@ namespace BeatThat.Properties
 		[HideInInspector]public BoolProp m_bindToProperty;
 		[HideInInspector]public BoolProp m_driveProperty;
 		private bool hasConnectedBinding;
-		virtual protected void Awake()
+
+
+		virtual protected void OnEnable()
 		{
-			if (this.bindOrDrivePropertyOptions == BindOrDrivePropertyOptions.Disabled || this.hasConnectedBinding) {
-				return;
+            // NOTE: this needs to be OnEnable (not awake or start)
+            // because otherwise if this component exists on, say,
+            // a pooled object that's getting enabled and disabled, 
+            // the Connect logic below will ONLY execute on first use of object.
+
+			if (this.bindOrDrivePropertyOptions == BindOrDrivePropertyOptions.Disabled) {
+#if UNITY_EDITOR || DEBUG_UNSTRIP
+                if(m_debug) {
+                    Debug.Log("[" + this.Path() + "] " + GetType() + " bind or drive property is disabled");
+                }
+#endif
+                return;
 			}
+
+            if(this.hasConnectedBinding && this.bindOrDrivePropertyOptions == BindOrDrivePropertyOptions.BindToProperty && m_bindToProperty != null) {
+#if UNITY_EDITOR || DEBUG_UNSTRIP
+                Debug.Log("[" + this.Path() + "] " + GetType() + " bind or drive property is already connected. Setting value to " + m_bindToProperty.value);
+#endif
+                SetValue(m_bindToProperty.value);
+                return;
+            }
+
+#if UNITY_EDITOR || DEBUG_UNSTRIP
+            Debug.Log("[" + this.Path() + "] " + GetType() + " will attempt connection with bind opts " + this.bindOrDrivePropertyOptions
+                      + " and bind-to-prop=" + m_bindToProperty.Path() + ", and drive-prop=" + m_driveProperty.Path());
+#endif
 
 			this.hasConnectedBinding |= 
 				this.bindOrDrivePropertyOptions == BindOrDrivePropertyOptions.BindToProperty 
 				&& m_bindToProperty != null 
-				&& BindBoolToBool.Connect<BindBoolToBool> (m_bindToProperty, this, m_resetValue);
+                && BindBoolToBool.Connect<BindBoolToBool> (m_bindToProperty, this, m_resetValue, m_debug);
 
 			this.hasConnectedBinding |= 
 				this.bindOrDrivePropertyOptions == BindOrDrivePropertyOptions.DriveProperty
 				&& m_driveProperty != null
-				&& BindBoolToBool.Connect<BindBoolToBool> (this, m_driveProperty, m_resetValue);
+                && BindBoolToBool.Connect<BindBoolToBool> (this, m_driveProperty, m_resetValue, m_debug);
 
 
-			#if UNITY_EDITOR || DEBUG_UNSTRIP
+#if UNITY_EDITOR || DEBUG_UNSTRIP
 			if(!this.hasConnectedBinding) {
 				Debug.LogWarning("[" + Time.frameCount + "] failed to bind to prop at " + GetType() + "[" + this.Path()
             + "]. If you don't want property binding on this component, set its BindOrDriveProperty field to Disabled");
 			}
-			#endif
+#endif
 		}
 
 

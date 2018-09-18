@@ -51,8 +51,10 @@ namespace BeatThat.Properties{
 
 		private bool didStart { get; set; }
 
-		virtual protected void OnEnable()
+		override protected void OnEnable()
 		{
+            base.OnEnable();
+
 			if(!this.didStart) {
 				return;
 			}

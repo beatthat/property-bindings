@@ -49,8 +49,10 @@ namespace BeatThat.Properties
 			Unbind();
 		}
 
-		void OnEnable()
+		override protected void OnEnable()
 		{
+            base.OnEnable();
+
 			if(this.didStart) {
 				Bind();
 			}

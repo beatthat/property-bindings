@@ -19,6 +19,8 @@ namespace BeatThat.Properties{
 
         void Rebind();
 
+        bool debug { get; set; }
+
     }
 
 	/// <summary>
@@ -58,6 +60,7 @@ namespace BeatThat.Properties{
 		public bool m_logWarningOnNoDriver = true;
 
 		public bool m_debug;
+        public bool debug { get { return m_debug; } set { m_debug = value; } }
 
 		virtual public ValueType defaultValue { get { return m_defaultValue; } }
 		virtual public void SetDefaultValue(ValueType v)
@@ -100,7 +103,12 @@ namespace BeatThat.Properties{
         /// by adding and configuring a BindPropToProp component
         /// to the target property's GameObject.
         /// </summary>
-        public static bool Connect<BindP2PType>(SourceProp driver, TgtPropInterface tgtProp, ValueType resetValue = default(ValueType))
+        public static bool Connect<BindP2PType>(
+            SourceProp driver, 
+            TgtPropInterface tgtProp, 
+            ValueType resetValue = default(ValueType),
+            bool debug = false
+        )
 			where BindP2PType : Component, IBindProp2Prop<SourceProp, TgtPropInterface, ValueType>
 		{
 #if UNITY_EDITOR
@@ -115,25 +123,25 @@ namespace BeatThat.Properties{
 #endif
 
             if(tgtProp == null) {
-				#if UNITY_EDITOR || DEBUG_UNSTRIP
+#if UNITY_EDITOR || DEBUG_UNSTRIP
 				Debug.LogWarning("Unable to Connect to a null target prop!");
-				#endif
+#endif
 				return false;
 			}
 				
 			var tgtPropComp = tgtProp as Component;
 			if(tgtPropComp == null) {
-				#if UNITY_EDITOR || DEBUG_UNSTRIP
-				Debug.LogWarning("Unable to Connect to a target prop that's not a component!");
-				#endif
+#if UNITY_EDITOR || DEBUG_UNSTRIP
+			    Debug.LogWarning("Unable to Connect to a target prop that's not a component!");
+#endif
 				return false;
 			}
-
 
 			var binding = tgtPropComp.gameObject.AddComponent<BindP2PType> ();
 			binding.SetDefaultValue(resetValue);
 			binding.ConfigureDriver (driver);
 			binding.property = tgtProp;
+            binding.debug = debug;
 
             binding.Rebind();
 
@@ -157,8 +165,8 @@ namespace BeatThat.Properties{
 			var p = this.property;
 			var v = (d != null)? d.value: this.defaultValue;
 
-			#if BT_DEBUG_UNSTRIP || UNITY_EDITOR
-			if(m_debug) {
+			#if DEBUG_UNSTRIP || UNITY_EDITOR
+            if(this.debug) {
 				Debug.Log("[" + Time.frameCount + "][" + this.Path() + "] " + GetType() 
 					+ "::UpdateProperty driver=" + d + ", property=" + p + ", newVal=" + v);
 			}
@@ -172,7 +180,7 @@ namespace BeatThat.Properties{
 			#endif
 
 			if(p == null) {
-				#if UNITY_EDITOR || BT_DEBUG_UNSTRIP
+				#if UNITY_EDITOR || DEBUG_UNSTRIP
 				Debug.LogWarning("[" + Time.frameCount + "][" + this.Path() + "] " + GetType() 
 					+ " unable to update (target prop is null)");
 				#endif
@@ -249,8 +257,8 @@ namespace BeatThat.Properties{
 
 		private void OnDriverValueChanged(ValueType value)
 		{
-			#if BT_DEBUG_UNSTRIP || UNITY_EDITOR
-			if(m_debug) {
+			#if DEBUG_UNSTRIP || UNITY_EDITOR
+            if(this.debug) {
 				Debug.Log("[" + Time.frameCount + "][" + this.Path() + "] " + GetType() + "::OnDriverValueChanged");
 			}
 			#endif

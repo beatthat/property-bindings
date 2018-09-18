@@ -1,4 +1,3 @@
-#if LEGACY_EDITS_FLOAT
 using System;
 using UnityEngine.Events;
 
@@ -20,4 +19,3 @@ namespace BeatThat.Properties{
 		}
 	}
 }
-#endif
