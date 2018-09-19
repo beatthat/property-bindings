@@ -45,15 +45,20 @@ namespace BeatThat.Properties{
 
             if(this.hasConnectedBinding && this.bindOrDrivePropertyOptions == BindOrDrivePropertyOptions.BindToProperty && m_bindToProperty != null) {
 #if UNITY_EDITOR || DEBUG_UNSTRIP
-                Debug.Log("[" + this.Path() + "] " + GetType() + " bind or drive property is already connected. Setting value to " + m_bindToProperty.value);
+                if (m_debug)
+                {
+                    Debug.Log("[" + this.Path() + "] " + GetType() + " bind or drive property is already connected. Setting value to " + m_bindToProperty.value);
+                }
 #endif
                 SetValue(m_bindToProperty.value);
                 return;
             }
 
 #if UNITY_EDITOR || DEBUG_UNSTRIP
-            Debug.Log("[" + this.Path() + "] " + GetType() + " will attempt connection with bind opts " + this.bindOrDrivePropertyOptions
+            if(m_debug) {
+                Debug.Log("[" + this.Path() + "] " + GetType() + " will attempt connection with bind opts " + this.bindOrDrivePropertyOptions
                       + " and bind-to-prop=" + m_bindToProperty.Path() + ", and drive-prop=" + m_driveProperty.Path());
+            }
 #endif
 
 			this.hasConnectedBinding |= 
