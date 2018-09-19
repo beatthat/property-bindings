@@ -1,7 +1,7 @@
 {
   "name": "property-bindings",
   "scope": "beatthat",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Components for binding a property component (component that holds a value) to something that holds or calculates its value, e.g. another property",
   "main": "index.js",
   "repository": {
