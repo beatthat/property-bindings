@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using System;
 
 namespace BeatThat.Properties{
-	public abstract class HasTexture : MonoBehaviour, IEditsTexture
+	public abstract class HasTexture : HasValue<Texture>, IEditsTexture
 	{
 		public UnityEvent onValueChanged { get { return m_onValueChanged?? (m_onValueChanged = new UnityEvent()); } }
 		private UnityEvent m_onValueChanged; 
@@ -24,7 +24,7 @@ namespace BeatThat.Properties{
 			}
 		}
 
-		public Texture value
+		override public Texture value
 		{
 			get { return GetTexture(); } 
 			set {
@@ -38,7 +38,6 @@ namespace BeatThat.Properties{
 			}
 		}
 
-		public object valueObj { get { return this.value; } }
 		abstract protected Texture GetTexture();
 		abstract protected void SetTexture(Texture t);
 	}

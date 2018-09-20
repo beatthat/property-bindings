@@ -1,9 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using System;
 
-namespace BeatThat.Properties{
+namespace BeatThat.Properties
+{
     [RequireComponent(typeof(Image))]
 	public class HasTextureSprite : HasTexture
     {
@@ -23,7 +22,15 @@ namespace BeatThat.Properties{
 			}
 		}
 
-		override protected Texture GetTexture()
+        public override bool sendsValueObjChanged
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        override protected Texture GetTexture()
         {
             return null;
         }

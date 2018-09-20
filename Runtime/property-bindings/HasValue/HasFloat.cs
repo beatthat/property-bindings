@@ -1,10 +1,6 @@
-using UnityEngine;
-
-namespace BeatThat.Properties{
-	public abstract class HasFloat : HasValue, IHasFloat
+namespace BeatThat.Properties
+{
+    public abstract class HasFloat : HasValue<float>, IHasFloat
 	{
-		public abstract float value { get; set; }
-
-		override public object valueObj { get { return this.value; } }
 	}
 }

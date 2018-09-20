@@ -1,7 +1,6 @@
 
 namespace BeatThat.Properties{
-	public abstract class HasLong : HasValue, IHasLong
+	public abstract class HasLong : HasValue<long>, IHasLong
 	{
-		public abstract long value { get; set; }
 	}
 }

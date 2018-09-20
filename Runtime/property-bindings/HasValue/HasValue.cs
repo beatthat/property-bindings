@@ -24,7 +24,7 @@ namespace BeatThat.Properties{
 		/// <summary>
 		/// TRUE if the impl class actually sends the onValueObjChanged event.
 		/// </summary>
-		abstract public bool sendsValueObjChanged { get; }
+        virtual public bool sendsValueObjChanged { get { return false; } }
 
 
 		/// <summary>
@@ -48,4 +48,11 @@ namespace BeatThat.Properties{
 
 		abstract public object valueObj { get; }
 	}
+
+    public abstract class HasValue<T> : HasValue, IHasValue<T>
+    {
+        public abstract T value { get; set; }
+
+        public override object valueObj { get { return this.value; } }
+    }
 }

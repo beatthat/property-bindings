@@ -1,9 +1,7 @@
 
 namespace BeatThat.Properties{
-	public abstract class HasText : HasValue, IHasText
-	{
-		abstract public string value { get; set; }
-
-		override public object valueObj { get { return this.value; } }
-	}
+	public abstract class HasText : HasValue<string>, IHasText
+    {
+        
+    }
 }

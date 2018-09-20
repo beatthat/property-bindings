@@ -1,10 +1,10 @@
-using BeatThat.TransformPathExt;
-using UnityEngine.Events;
-using UnityEngine;
-using UnityEngine.Serialization;
 using BeatThat.UnityEvents;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 
-namespace BeatThat.Properties{
+namespace BeatThat.Properties
+{
     public interface IIntProp : IHasProp<int> {}
 
 	/// <summary>
