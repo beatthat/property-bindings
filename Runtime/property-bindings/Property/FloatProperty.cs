@@ -1,10 +1,10 @@
 using BeatThat.TransformPathExt;
-using UnityEngine.Events;
 using UnityEngine;
 
 
-namespace BeatThat.Properties{
-	public class FloatProperty : FloatProp
+namespace BeatThat.Properties
+{
+    public class FloatProperty : FloatProp
 	{
 		public float m_value; // TODO: this shouldn't be public but good to see in Inspector. Move to editor class.
 
