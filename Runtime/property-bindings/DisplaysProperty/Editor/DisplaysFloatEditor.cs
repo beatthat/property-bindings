@@ -3,7 +3,7 @@ using UnityEditor;
 namespace BeatThat.Properties{
 	[CustomEditor(typeof(DisplaysFloat), true)]
 	[CanEditMultipleObjects]
-	public class DisplaysFloatEditor : FloatPropertyEditor
+    public class DisplaysFloatEditor : FloatPropEditor
 	{
 		public override void OnInspectorGUI()
 		{

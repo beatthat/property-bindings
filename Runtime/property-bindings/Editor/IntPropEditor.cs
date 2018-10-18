@@ -3,13 +3,13 @@ using UnityEngine;
 using System;
 
 namespace BeatThat.Properties{
-	[CustomEditor(typeof(IntProperty), true)]
+	[CustomEditor(typeof(IntProp), true)]
 	[CanEditMultipleObjects]
-	public class IntPropertyEditor : ValuePropertyEditor<IntProperty, int>
+	public class IntPropEditor : ValuePropertyEditor<IntProp, int>
 	{
 		override public void OnInspectorGUI() 
 		{
-			var prop = this.target as IntProperty;
+			var prop = this.target as IntProp;
 			var valBefore = prop.value;
 			EditorGUILayout.LabelField ("Value", (this.target as HasValue).valueObj + "");
 			base.OnInspectorGUI();

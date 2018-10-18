@@ -68,7 +68,10 @@ namespace BeatThat.Properties{
 #if UNITY_EDITOR || DEBUG_UNSTRIP
             if (this.hasConnectedBinding)
             {
-                Debug.Log("[" + Time.frameCount + "] connect succeeded on enabsle " + GetType() + "[" + this.Path() + "]");
+                if (m_debug)
+                {
+                    Debug.Log("[" + Time.frameCount + "] connect succeeded on enabsle " + GetType() + "[" + this.Path() + "]");
+                }
             }
             else {
 				Debug.LogWarning("[" + Time.frameCount + "] failed to bind to prop at " + GetType() + "[" + this.Path() + "]");
