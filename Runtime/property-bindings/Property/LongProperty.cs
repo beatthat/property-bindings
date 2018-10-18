@@ -47,7 +47,7 @@ namespace BeatThat.Properties{
 			}
 			#endif
 
-			if(val == GetValue() && opts != PropertyEventOptions.Force) {
+            if(opts != PropertyEventOptions.Force && val == GetValue()) {
 				return;
 			}
 

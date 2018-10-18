@@ -13,23 +13,23 @@ namespace BeatThat.Properties
 
 		override protected float GetValue() { return m_value; }
 
-		override protected void EnsureValue(float val) 
+        override protected void EnsureValue(float v) 
 		{
-			m_value = val;
+			m_value = v;
 		}
 
-		override protected void _SetValue(float s) 
+        override protected void _SetValue(float v) 
         { 
-            m_value = s;
+            m_value = v;
         }
 
 		virtual protected void OnDidApplyAnimationProperties()
 		{
-			#if BT_DEBUG_UNSTRIP || UNITY_EDITOR
+#if DEBUG_UNSTRIP || UNITY_EDITOR
 			if(m_debug) {
 				Debug.Log("[" + Time.frameCount + "][" + this.Path() + "] " + GetType() + "::OnDidApplyAnimationProperties");
 			}
-			#endif
+#endif
 
 			SetValue(m_value);
 		}
@@ -38,8 +38,25 @@ namespace BeatThat.Properties
 		virtual protected void OnDisable()
 		{
 			if(m_resetValueOnDisable) {
-				m_value = m_resetValue;
+#if UNITY_EDITOR || DEBUG_UNSTRIP
+                if (m_debug)
+                {
+                    Debug.Log("[" + Time.frameCount + "][" + this.Path() + "] " 
+                              + GetType() + "::OnDisable will reset value from " 
+                              + m_value + " to " + m_resetValue);
+                }
+#endif
+                m_value = m_resetValue;
 			}
+            else {
+#if UNITY_EDITOR || DEBUG_UNSTRIP
+                if (m_debug)
+                {
+                    Debug.Log("[" + Time.frameCount + "][" + this.Path() + "] "
+                              + GetType() + "::OnDisable will NOT reset value property, current " + m_value);
+                }
+#endif
+            }
 		}
 
 		override protected void Start()
@@ -66,15 +83,6 @@ namespace BeatThat.Properties
 			}
 		}
 
-
-		void OnDestroy()
-		{
-			#if BT_DEBUG_UNSTRIP || UNITY_EDITOR
-			if(m_debug) {
-				Debug.Log("[" + Time.frameCount + "][" + this.Path() + "] " + GetType() + "::OnDestroy");
-			}
-			#endif
-		}
 
 	}
 }
