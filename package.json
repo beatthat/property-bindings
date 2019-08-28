@@ -51,7 +51,7 @@
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
     "path": "^0.12.7",
-    "property-interfaces": "github:beatthat/property-interfaces#semver:^1.0.0",
+    "property-interfaces": "github:beatthat/property-interfaces#semver:^1.1.0",
     "services": "github:beatthat/services#semver:^1.0.0",
     "transform-path-ext": "github:beatthat/transform-path-ext#semver:^1.0.0",
     "unity-npm-utils": "github:beatthat/unity-npm-utils#semver:^1.0.0"
