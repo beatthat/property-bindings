@@ -67,12 +67,12 @@ namespace BeatThat.Properties
             this.hasConnectedBinding |=
                 this.bindOrDrivePropertyOptions == BindOrDrivePropertyOptions.BindToProperty
                 && m_bindToProperty != null
-                && BindTextureToTexture.Connect<BindTextureToTexture>(m_bindToProperty, this, m_resetValue, m_debug);
+                && BindTexture2Texture.Connect<BindTexture2Texture>(m_bindToProperty, this, m_resetValue, m_debug);
 
             this.hasConnectedBinding |=
                 this.bindOrDrivePropertyOptions == BindOrDrivePropertyOptions.DriveProperty
                 && m_driveProperty != null
-                && BindTextureToTexture.Connect<BindTextureToTexture>(this, m_driveProperty, m_resetValue, m_debug);
+                && BindTexture2Texture.Connect<BindTexture2Texture>(this, m_driveProperty, m_resetValue, m_debug);
 
 
 #if UNITY_EDITOR || DEBUG_UNSTRIP
